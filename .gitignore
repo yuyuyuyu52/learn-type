@@ -1,0 +1,76 @@
+############################
+# Frontend / Node / Vite   #
+############################
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.eslintcache
+frontend/.tsbuildinfo
+*.tsbuildinfo
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# Python / Backend / Flask #
+############################
+backend/.venv/
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/instance/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+############################
+# Env / Secrets            #
+############################
+.env
+.env.*
+!.env.example
+
+############################
+# System / Editor          #
+############################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+############################
+# Tooling assets           #
+############################
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+############################
+# Local tools binaries     #
+############################
+tools/node-v*/
+tools/*.tar.xz
+
+############################
+# Misc                     #
+############################
+*.orig
+*.rej
+*.bak
+*.tmp
+*.cache
+
+# End of file
