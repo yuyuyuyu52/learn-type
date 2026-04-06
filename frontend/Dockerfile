@@ -1,18 +1,12 @@
-# Build stage
-FROM node:20-alpine as build
-
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . .
 RUN npm run build
 
-# Serve stage
-FROM nginx:alpine
-
-COPY --from=build /app/dist /usr/share/nginx/html
-COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 5173
-
-CMD ["nginx", "-g", "daemon off;"]
+FROM caddy:2-alpine
+COPY --from=builder /app/dist /usr/share/caddy/html
+COPY Caddyfile /etc/caddy/Caddyfile
+EXPOSE 80
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

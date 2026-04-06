@@ -1,5 +1,5 @@
-:5173 {
-    root * /usr/share/nginx/html
+:80 {
+    root * /usr/share/caddy/html
     try_files {path} {path}/ /index.html
 
     reverse_proxy /api/* 1.15.155.204:5001
