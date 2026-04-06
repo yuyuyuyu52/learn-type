@@ -1,0 +1,6 @@
+:5173 {
+    root * /usr/share/nginx/html
+    try_files {path} {path}/ /index.html
+
+    reverse_proxy /api/* 1.15.155.204:5001
+}
